@@ -1,0 +1,175 @@
+@startuml
+/'Anthony Jaimes'/
+/'ID:2018391'/
+/'Assignment 2'/
+abstract class Action {
+    - dungeon: Dungeon
+    + Action(dungeon: Dungeon)
+    + execute(): void
+}
+
+class Fight {
+    - monster: Monster
+    + Fight(dungeon: Dungeon, monster: Monster)
+    + execute(): void
+    + toString(): String
+}
+
+
+abstract class Character {
+    - name: String
+    - strength: int
+    - craft: int
+    - health: int
+    - inventory: List<Item>
+    + Character(name: String, strength: int, craft: int, health: int)
+    + getCharName(): String
+    + getCharStrength(): int
+    + getCharCraft(): int
+    + getCharHealth(): int
+    + addItem(item: Item): void
+    + reduceHealth(amount: int): void
+}
+class Item {
+    - name: String
+    - strength: int
+    - craft: int
+    + Item(name: String, strength: int, craft: int)
+    + getName(): String
+    + getStrength(): int
+    + getCraft(): int
+}
+class Dungeon {
+    -player: Character
+    -endChamber: Chamber
+    -currentChamber: Chamber
+    +Dungeon(player: Character, currentChamber: Chamber, goalChamber: Chamber)
+    +isFinished(): boolean
+    +getCurrentChamber(): Chamber
+    +setCurrentChamber(chamber: Chamber): void
+    +getActions(): List<Action>
+    +getPlayer(): Character
+}
+class Chamber {
+    -doors: List<Door>
+    -items: List<Item>
+    +Chamber()
+    +Chamber(item: Item)
+    +getDoors(): List<Door>
+    +getItems(): List<Item>
+    +addDoor(door: Door): void
+}
+class Door {
+    -chamber1: Chamber
+    -chamber2: Chamber
+    -guard: Monster
+    +Door(chamber1: Chamber, chamber2: Chamber, guard: Monster)
+    +getOtherChamber(current: Chamber): Chamber
+    +getGuard(): Monster
+    +defeatGuard(): void
+    +static connect(chamber1: Chamber, chamber2: Chamber): void
+    +static connect(chamber1: Chamber, chamber2: Chamber, guard: Monster): void
+}
+class Move {
+    - door: Door
+    + Move(dungeon: Dungeon, door: Door)
+    + execute(): void
+    + toString(): String
+}
+
+
+
+class Game {
+    + main(args: String[]): void
+}
+class Pick {
+    - item: Item
+    + Pick(dungeon: Dungeon, item: Item)
+    + execute(): void
+    + toString(): String
+}
+class PrintError {
+    - exception: Exception
+    + PrintError(dungeon: Dungeon, exception: Exception)
+    + execute(): void
+}
+class TextUI {
+    + play(d: Dungeon): void
+    - print(d: Dungeon): void
+    - ask(d: Dungeon): Action
+}
+
+
+
+
+
+
+class Wizard {
+    + Wizard(name: String)
+}
+
+class Warrior {
+    + Warrior(name: String)
+}
+
+class Monster {
+    + Monster(name: String, strength: int, craft: int, health: int)
+}
+class Sword {
+    + Sword()
+}
+class Axe {
+    +Axe()
+}
+
+class EnchantedItem {
+    +EnchantedItem()
+}
+
+class Shield {
+    +Shield()
+}
+
+Character "1" *-- "0..*" Item : owns
+
+Wizard -|> Character
+Warrior -|> Character
+Monster -|> Character
+
+Sword -|> Item
+Axe -|> Item
+EnchantedItem -|> Item
+Shield -|> Item
+Chamber --> Door
+Chamber --> Item
+Move --> Action
+Move --> Door
+Action <|-- Fight
+Fight --> Monster
+Action --> Dungeon
+
+Dungeon --> Character
+Dungeon --> Chamber
+Dungeon --> Action
+Dungeon --> Door
+Dungeon --> Item
+Door --> Chamber
+Door --> Monster
+TextUI --> Dungeon
+TextUI --> Action
+TextUI --> PrintError
+
+
+PrintError --> Action
+PrintError --> Exception
+
+Pick --> Action
+Pick --> Item
+
+Game --> Chamber
+Game --> Door
+Game --> Character
+Game --> Dungeon
+Game --> Wizard
+Game --> TextUI
+@enduml
