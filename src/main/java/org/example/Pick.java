@@ -8,7 +8,7 @@ public class Pick extends Action {
     private Item item;
     public Pick(Dungeon dungeon, Item item) {
         super(dungeon);
-        this.item = item;
+        this.item = item ;
     }
     public void execute() {
         dungeon.getPlayer().addItem(item);
