@@ -16,7 +16,7 @@ class ItemTest {
     @org.junit.jupiter.api.Test
     void getStrength() {
         Item Axe = new Axe();
-        assertEquals(5, Axe.getStrength());
+        assertEquals(5,Axe.getStrength());
     }
     @org.junit.jupiter.api.Test
     void getCraft() {
