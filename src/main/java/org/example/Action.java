@@ -11,6 +11,7 @@ public abstract class Action {
     /**
      *
      * @param dungeon
+     * dictates executable action
      */
     public Action(Dungeon dungeon) {
         this.dungeon = dungeon;
