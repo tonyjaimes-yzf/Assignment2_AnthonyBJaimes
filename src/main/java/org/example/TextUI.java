@@ -9,6 +9,10 @@ import java.util.List;
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
 public class TextUI {
+    /**
+     *
+     * @param d
+     */
     public void play(Dungeon d) {
         while (!d.isFinished()) {
             print(d);
@@ -16,6 +20,12 @@ public class TextUI {
             a.execute();
         }
     }
+
+    /**
+     *
+     * @param d
+     * prints for each door which monster is there, how strong it is, how skilled in craft, and how healthy
+     */
     private void print(Dungeon d) {
         Chamber r = d.getCurrentChamber();
         StringBuilder s = new StringBuilder();
@@ -35,6 +45,13 @@ public class TextUI {
         }
         System.out.println(s.toString());
     }
+
+    /**
+     *
+     * @param d
+     * @return print error message
+     * Logic for prompting the user with the options
+     */
     private Action ask(Dungeon d) {
         StringBuilder s = new StringBuilder();
         s.append("Here are your options:\n");

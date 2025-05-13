@@ -5,6 +5,9 @@ package org.example;
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
 public class Shield extends Item {
+    /**
+     * Creates a shield item
+     */
     Shield() {
         super("Shield", 1, 0);
     }

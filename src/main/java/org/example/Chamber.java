@@ -7,9 +7,16 @@ import java.util.List;
 // Written by: Anthony Jaimes ID: 2018391
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
+
+/**
+ * Chamber inside of dungeon.
+ * Has doors
+ * Has items
+ */
 public class Chamber {
     private List<Door> doors;
     private List<Item> items;
+
 
     public Chamber() {
         this.doors = new ArrayList<>();
@@ -19,6 +26,7 @@ public class Chamber {
         this();
         this.items.add(item);
     }
+
     public List<Door> getDoors() {
         return doors;
     }

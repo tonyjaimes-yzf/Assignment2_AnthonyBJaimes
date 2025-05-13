@@ -5,6 +5,9 @@ package org.example;
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
 public class Axe extends Item {
+    /**
+     * Creates an Axe item
+     */
     Axe() {
         super("Axe", 5, 0);
     }

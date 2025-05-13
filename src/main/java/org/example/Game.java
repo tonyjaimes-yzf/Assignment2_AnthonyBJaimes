@@ -5,6 +5,10 @@ package org.example;
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
 public class Game {
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // initialize some chambers
         Chamber[] chambers = new Chamber[] {

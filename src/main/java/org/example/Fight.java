@@ -8,10 +8,19 @@ import java.util.Random;
 public class Fight extends Action {
     private final Monster monster;
 
+    /**
+     *
+     * @param dungeon
+     * @param monster
+     */
     public Fight(Dungeon dungeon, Monster monster) {
         super(dungeon);
         this.monster = monster;
     }
+
+    /**
+     * The main logic for the combat mechanism
+     */
     public void execute() {
         Character player = dungeon.getPlayer();
         Random rand = new Random();
@@ -48,6 +57,11 @@ public class Fight extends Action {
             System.out.println("You Died!");
         }
     }
+
+    /**
+     *
+     * @return text to see what monster can be fought
+     */
     public String toString() {
         return "Fight " + monster.getCharName();
     }

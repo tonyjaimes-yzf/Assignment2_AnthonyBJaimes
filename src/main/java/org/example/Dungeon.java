@@ -10,23 +10,48 @@ public class Dungeon {
     private Character player;
     private Chamber endChamber;
     private Chamber currentChamber;
+
+    /**
+     *
+     * @param player
+     * @param currentChamber
+     * @param goalChamber
+     */
     public Dungeon(Character player, Chamber currentChamber, Chamber goalChamber) {
         this.player = player;
         this.endChamber = goalChamber;
         this.currentChamber = currentChamber;
     }
+
+    /**
+     *
+     * @return checks to see if the game is finished
+     */
     public boolean isFinished() {
         return currentChamber == endChamber
                 || player.getCharHealth() <= 0;
     }
+
+    /**
+     *
+     * @return current chamber being played
+     */
     public Chamber getCurrentChamber() {
         return currentChamber;
     }
 
+    /**
+     *
+     * @param chamber
+     */
     public void setCurrentChamber(Chamber chamber) {
         this.currentChamber = chamber;
     }
 
+    /**
+     *
+     * @return the actions at play
+     */
     public List<Action> getActions() {
         List<Action> actions = new ArrayList<>();
         for (Door door : currentChamber.getDoors()) {
@@ -41,6 +66,11 @@ public class Dungeon {
         }
         return actions;
     }
+
+    /**
+     *
+     * @return player
+     */
     public Character getPlayer() {
         return player;
     }

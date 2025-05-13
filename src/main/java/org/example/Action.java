@@ -4,9 +4,14 @@ package org.example;
 // Written by: Anthony Jaimes ID: 2018391
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
+
 public abstract class Action {
     protected Dungeon dungeon;
 
+    /**
+     *
+     * @param dungeon
+     */
     public Action(Dungeon dungeon) {
         this.dungeon = dungeon;
     }

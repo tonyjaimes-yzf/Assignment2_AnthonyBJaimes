@@ -5,6 +5,9 @@ package org.example;
 // For SES350 Section 602 – Spring 2025
 //--------------------------------------------------------
 public class Enchanted extends Item {
+    /**
+     * Creates an Enchanted item
+     */
     Enchanted() {
         super("Enchanted Apple", 0, 10);
     }
